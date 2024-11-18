@@ -12,6 +12,8 @@ public class Bai5Applet extends Applet {
     static final byte PRINT_DOB_INS = (byte) 0x03;
     static final byte PRINT_ADDRESS_INS = (byte) 0x04;
 
+    static final byte DELIMITER = (byte) 0x7C;
+
     // output map
     // 0x00 0x00 -> NAME
     // 0x00 0x01 -> STUDENT_CODE
@@ -137,17 +139,17 @@ public class Bai5Applet extends Applet {
         short dobLength = 0;
         short addressLength = 0;
         short i = 0;
-        while (inputBytes[i] != '|') {
+        while (inputBytes[i] != DELIMITER) {
             fullNameLength++;
             i++;
         }
         i++;
-        while (inputBytes[i] != '|') {
+        while (inputBytes[i] != DELIMITER) {
             studentCodeLength++;
             i++;
         }
         i++;
-        while (inputBytes[i] != '|') {
+        while (inputBytes[i] != DELIMITER) {
             dobLength++;
             i++;
         }
